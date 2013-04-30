@@ -5,6 +5,7 @@ Diffie::Application.routes.draw do
   root :to => "home#index"
   match '/home/:action', controller: "home", as: "home"
   match 'dh_calculate' => 'home#dh_calculate'
+  match 'calculate_qr' => 'home#calculate_qr'
   match 'modulo' => 'home#modulo'
 
   devise_for :users

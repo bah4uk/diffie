@@ -2,6 +2,16 @@ class HomeController < ApplicationController
   def index
   end
 
+  def qr_code
+    @qr = nil
+  end
+
+  def calculate_qr
+    str = params[:sample]
+    @qr = RQRCode::QRCode.new(str)
+    render :action => :qr_code    
+  end
+
   def helpers
     @result = ''
     @solution = ''
