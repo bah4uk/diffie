@@ -1,0 +1,18 @@
+%h3 Helpers
+.row
+  = form_tag('/modulo') do
+    .span4
+      = label_tag(:num, "num")
+      = text_field_tag(:num)
+      = label_tag(:e, "power")
+      = text_field_tag(:e)
+      = label_tag(:m, "modulo")
+      = text_field_tag(:m)
+    .span4
+      = text_field_tag(:az, "Result: #{@result}", :disabled => true, :placeholder => "Result")
+      %br
+      = submit_tag("Calculate")
+    .span4
+      %p
+        - unless @solution.nil?
+          = @solution

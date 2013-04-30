@@ -2,6 +2,20 @@ class HomeController < ApplicationController
   def index
   end
 
+  def helpers
+    @result = ''
+    @solution = ''
+  end
+
+  def modulo
+    num = params[:num].to_i
+    e = params[:e].to_i
+    m = params[:m].to_i
+    @result = num.mod_exp(e, m)
+    @solution = "#{num} ^ #{e} mod #{m} = #{@result}"
+    render :action => :helpers
+  end
+
   def dh_calculate
     a = params[:a].to_i
     b = params[:b].to_i
