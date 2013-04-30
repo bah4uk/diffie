@@ -1,0 +1,23 @@
+%h3 Diifie Hellman
+.row
+  = form_tag('/dh_calculate') do
+    .span4
+      = label_tag(:p, "Select prime p")
+      = text_field_tag(:p)
+      = label_tag(:g, "Select generator g")
+      = text_field_tag(:g)
+    .span4
+      = label_tag(:a, "Select a")
+      = text_field_tag(:a)
+      = label_tag(:b, "Select b")
+      = text_field_tag(:b)
+    .span4
+      = text_field_tag(:az, "Alice's secret: #{@secrets[0]}", :disabled => true, :placeholder => "Alice's secret")
+      = text_field_tag(:bz, "Bob's secret: #{@secrets[1]}", :disabled => true, :placeholder => "Bob's secret")
+      %br
+      = submit_tag("Calculate")
+%p
+  - unless @history.empty?
+    - @history.each do |line|
+      = line
+      %br
